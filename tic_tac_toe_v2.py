@@ -81,22 +81,18 @@ def filledCheck(board, row, column):
 
 def winnerCheck(board):
 # Determines the winner
-    primeBoard = [[2,3,5],[7,11,13],[17,19,23]]
-    winPrime = [2*3*5, 7*11*13, 17*19*23, 2*7*17, 3*11*19, 5*13*23, 2*11*23, 5*11*17]
-    p1mult = 1
-    p2mult = 1
-    for i in range(3):
-        for j in range(3):
-            if board[i][j] == 'X':
-                p1mult *= primeBoard[i][j]
-            if board[i][j] == 'O':
-                p2mult *= primeBoard[i][j]
-    if 0 in [p1mult % x for x in winPrime]:
-        return 'P1', True
-    elif 0 in [p2mult % x for x in winPrime]:
-        return 'P2', True
-    else:
-        return 'none', False
+    for row in board:
+        if row[0] == row[1] == row[2] != ' ':
+            return ('P1' if row[0] == 'X' else 'P2'), True
+    for col in range(3):
+        if board[0][col] == board[1][col] == board[2][col] != ' ':
+            return ('P1' if board[0][col] == 'X' else 'P2'), True
+    if board[0][0] == board[1][1] == board[2][2] != ' ':
+        return ('P1' if board[0][0] == 'X' else 'P2'), True
+    if board[0][2] == board[1][1] == board[2][0] != ' ':
+        return ('P1' if board[0][2] == 'X' else 'P2'), True
+    
+    return 'none', False
 
 def announceWinner(p1, p2, winner):
 # Announces the winner

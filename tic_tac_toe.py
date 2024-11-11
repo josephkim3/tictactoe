@@ -80,7 +80,7 @@ def filledCheck(board, row, column):
     return True
 
 def winnerCheck(board):
-# Determines the winner
+# Determines the winner by using prime numbers
     primeBoard = [[2,3,5],[7,11,13],[17,19,23]]
     winPrime = [2*3*5, 7*11*13, 17*19*23, 2*7*17, 3*11*19, 5*13*23, 2*11*23, 5*11*17]
     p1mult = 1

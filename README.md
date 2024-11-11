@@ -1,1 +1,3 @@
 # tictactoe
+a simple tic tac toe game i created a long time ago...
+uses prime numbers to determine winner
